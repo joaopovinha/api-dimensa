@@ -1,13 +1,13 @@
-package com.apidimensa.artifactdimensa.models;
+package com.apidimensa.artifactdimensa.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
-import java.util.List;
+
+import java.util.Objects;
 
 @Entity
 @Table(name = Contato.TABLE_NAME)
@@ -16,8 +16,8 @@ public class Contato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true)
-    private Integer id;
+    @Column(name = "contatoId", unique = true)
+    private Long contatoId;
 
     @Column(name = "nome", nullable = false, length = 20)
     @NotBlank
@@ -32,24 +32,25 @@ public class Contato {
     @Column(name = "telefone", nullable = false, length = 11)
     @NotBlank
     @Size(min = 11, max = 11)
-    private Integer telefone;
+    private String telefone;
 
     @Column(name = "dataNascimento", nullable = false)
     @NotBlank
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    private Date dataNascimento;
+    private String dataNascimento;
 
-    @ManyToOne
-    @JoinColumn(name = "endereco_id", nullable = false, updatable = false)
+    @OneToOne(mappedBy = "contato", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    @JsonManagedReference
     private Endereco endereco;
+
 
     // Constructors
 
     public Contato() {
     }
 
-    public Contato(Integer id, String nome, String email, Integer telefone, Date dataNascimento) {
-        this.id = id;
+    public Contato(Long contatoId, String nome, String email, String telefone, String dataNascimento) {
+        this.contatoId = contatoId;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -58,12 +59,12 @@ public class Contato {
 
     // Getters and Setters
 
-    public Integer getId() {
-        return id;
+    public Long getContatoId() {
+        return contatoId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setContatoId(Long contatoId) {
+        this.contatoId = contatoId;
     }
 
     public String getNome() {
@@ -82,19 +83,19 @@ public class Contato {
         this.email = email;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -105,4 +106,5 @@ public class Contato {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
 }
