@@ -22,7 +22,7 @@ public class Endereco {
     private String rua;
 
     @Column(name = "numero")
-    private Integer numero;
+    private String numero;
 
     @Column(name = "cep")
     private String cep;
@@ -33,7 +33,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(Long contatoId, Contato contato, String rua, Integer numero, String cep) {
+    public Endereco(Long contatoId, Contato contato, String rua, String numero, String cep) {
         this.contatoId = contatoId;
         this.contato = contato;
         this.rua = rua;
@@ -48,9 +48,7 @@ public class Endereco {
         return contatoId;
     }
 
-    public void setContatoId(Long contatoId) {
-        this.contatoId = contatoId;
-    }
+    public void setContatoId(Long contatoId) { this.contatoId = contatoId; }
 
     public Contato getContato() {
         return contato;
@@ -68,11 +66,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
