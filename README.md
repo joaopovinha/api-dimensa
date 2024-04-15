@@ -55,7 +55,7 @@ A aplicação conta com uma documentação via OpenAPI (Swagger) para facilitar 
 
 A API está atualmente hospedada na AWS através de uma instância EC2 e utiliza um banco de dados hospedado na nuvem via RDS.
 
-Para qualquer dúvida ou sugestão, entre em contato conosco.
+Para qualquer dúvida ou sugestão, entre em contato comigo.
 
 ---
-Este projeto faz parte do desafio técnico da empresa Dimensa. Desenvolvido por [Seu Nome].
+Este projeto faz parte do desafio técnico da empresa Dimensa. Desenvolvido por João Bomfim Povinha.
