@@ -49,7 +49,7 @@ A API possui os seguintes endpoints:
 
 ## Documentação via Swagger
 
-A aplicação conta com uma documentação via OpenAPI (Swagger) para facilitar a interação e testes dos endpoints. Para acessar o Swagger da aplicação, basta utilizar o seguinte endereço: [INSERIR AQUI O ENDEREÇO].
+A aplicação conta com uma documentação via OpenAPI (Swagger) para facilitar a interação e testes dos endpoints. Para acessar o Swagger da aplicação, basta utilizar o seguinte endereço: [Click Here to access](http://ec2-18-119-113-58.us-east-2.compute.amazonaws.com:8080/swagger-ui/index.html).
 
 ## Hospedagem e Banco de Dados
 
